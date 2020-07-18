@@ -7,7 +7,9 @@
       </h3>
 
       <div class="root__warpper">
-        <config-left class="root__left"></config-left>
+        <config-left class="root__left"
+                     @upload="upload"></config-left>
+        <config-right class="root__right"></config-right>
       </div>
     </div>
   </div>
@@ -15,9 +17,23 @@
 
 <script>
   import ConfigLeft from '~/components/ConfigLeft.vue'
+  import ConfigRight from '~/components/ConfigRight.vue'
   export default {
     components: {
-      ConfigLeft
+      ConfigLeft,
+      ConfigRight
+    },
+    data () {
+      return {
+        questions: {
+          upload: {}
+        }
+      }
+    },
+    methods: {
+      upload (data) {
+        this.questions.upload = data
+      }
     }
   }
 </script>
@@ -55,5 +71,13 @@
   .root__left {
     width: 30%;
     height: 95%;
+    float: left;
+  }
+
+  .root__right {
+    width: 67%;
+    height: 95%;
+    float: right;
+    margin-right: 10px;
   }
 </style>

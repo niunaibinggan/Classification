@@ -20,6 +20,8 @@
         const { type, size, name } = val[0]
         const TAG_DIC = {
           image: 'img',
+          video: 'video',
+          audio: 'audio',
         }
         const fileType = (/^(.*)\//.exec(type) || [])[1]
         const tag = TAG_DIC[fileType]
